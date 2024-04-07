@@ -1,0 +1,572 @@
+Mobile Wireframes:
+
+Homepage
+
+Current location weather display
+Search bar
+Navigation menu
+Forecast Page
+
+Hourly forecast timeline
+Daily forecast summary
+Toggle between hourly/daily views
+Alerts Page
+
+Severe weather alerts for location
+Details on alert type, severity, expiration
+Link to view on map
+Desktop Wireframes:
+
+Homepage
+
+Current weather occupies more space
+More detailed forecast summary
+Horizontal navigation menu
+Forecast Page
+
+Timeline spans width of screen
+More info in daily forecast cards
+Map view option
+Alerts Page
+
+Alerts displayed in expandable cards
+Map displays alert locations
+More alert details visible
+
+Key Features:
+Current Weather Display:
+
+Shows real-time weather data for user's location including temperature, conditions, humidity, wind, etc.
+Location Search:
+
+Allows user to search for weather in other cities and locations.
+Weather Forecasting:
+
+Displays hourly and daily weather forecasts for a given location.
+Severe Weather Alerts:
+
+Provides weather alerts and warnings for hazardous conditions like storms, flooding, etc.
+Favorite Locations:
+
+Allows users to save preferred locations for quick access to forecasts.
+Interactive Map:
+
+Displays weather layers over a map for visualization of conditions.
+Weather Animations:
+
+Dynamic backgrounds and elements that reflect current and forecasted conditions.
+Offline Access:
+
+Ability to access basic weather data without internet connectivity.
+Unit Conversion:
+
+Allows toggling between metric and imperial units for temperature, wind, etc.
+Data Sharing:
+
+Option to share current weather and forecasts on social media or with contacts.
+Accessibility:
+
+Follows standards to support screen readers and other assistive technologies.
+
+Here are some potential data storage requirements and functionalities using localStorage for the weather app:
+
+Requirements:
+
+Store user's preferred temperature unit (Celsius vs Fahrenheit)
+Save user's list of favorite locations for quick forecast lookups
+Cache recent weather data to allow basic functionality offline
+Keep user's app preferences (e.g. always show radar, enable notifications)
+Local Storage Functions:
+
+Set and get user's preferred temperature unit
+Add and retrieve favorite locations from array in storage
+Save recent weather data objects indexed by location
+Load any cached data on startup to populate app
+Store user preference settings in JSON object
+Define keys for each data type to segregate in storage
+Use sessionStorage for non-permanent data like offline cache
+Add timestamps to cache entries for expiration after 24 hours
+The localStorage API provides a simple key-value system that can handle the necessary data storage needs for settings, favorites, and caching for the app. Careful design of the storage architecture and data formatting will be important.
+
+WeatherService Module
+
+Responsible for fetching weather data from API
+Makes API calls to get current, forecast, and alert data
+Parses JSON response and formats weather data objects
+Contains API url, endpoints, keys, etc.
+Handles errors from API requests
+UI Module
+
+Manages all UI elements, templates, and views
+Displays weather data on views
+Handles user interactions like clicks, searches, toggles
+Updates UI based on data changes
+Contains UI templates, views, controls
+Storage Module
+
+Implements localStorage functionality
+Saves and retrieves user settings and preferences
+Stores favorite locations list
+Caches weather data for offline access
+Encapsulates storage operations
+Animation Module
+
+Adds visual effects based on weather
+Sets dynamic backgrounds reflecting conditions
+Animates elements like wind and precipitation
+Controls SVGs, particles, transitions
+Could be split into separate modules
+The modular design allows separation of concerns for managing API, UI, storage, and animations independently. Clean interfaces enable loose coupling between modules.
+
+Clear and Sunny:
+
+Bright sunny yellow (#F2C94C)
+Warm sunny orange (#F2994A)
+Bright sky blue (#56A4D3)
+Crisp sunny white (#FFFFFF)
+Clouds and Fog:
+
+Cloudy gray (#808F9D)
+Light foggy gray (#F5F7F7)
+Dark stormy gray (#505763)
+Dull faded white (#DFE3E4)
+Rain and Snow:
+
+Rainy blue (#6C85A6)
+Stormy dark blue (#252E3E)
+Light rain gray (#D4D7D9)
+Snowy light blue (#B9C6CB)
+Night:
+
+Night sky navy (#0B1A2A)
+Night sky purple (#271F42)
+Moonlight white (#FFFFFF) with opacity
+The colors focus on shades of blue, gray, white and sometimes orange/yellow to represent common weather conditions. The palette provides contrast and visual cues through lighter and darker shades.
+Headings: Montserrat
+
+Clean, modern sans-serif font
+Legible at both small and large sizes
+Has weights from light to black for contrast
+Body Text: Open Sans
+
+Optimized for legibility across devices
+Works well for blocks of text
+Clean and neutral so won't clash with visuals
+Fallback Font: System Font Stack (iOS/Android)
+
+Use system fonts for wider compatibility
+Fallback to "Helvetica Neue", Helvetica, Arial, sans-serif
+Typography Styles:
+
+Use size, color, weight for visual hierarchy
+Darker colors for headings, lighter for body
+Limit body text widths for readability
+Consistent styling across views
+Ensure accessibility standards for contrast
+Usage Considerations:
+
+Test across various screen sizes
+Ensure fonts load quickly
+Allow user option to increase font size
+
+Weather Elements:
+
+Use color to differentiate conditions (blue for rain, gray for clouds, etc.)
+Represent weather icons in a consistent visual style
+Apply opacity gradients to images of weather conditions to make them secondary
+Display current and forecasted weather in distinct but related styles
+Animate transitions between weather element changes
+Functional Buttons:
+
+Use strong solid colors that contrast with backgrounds
+Add shadows for depth and afford appropriate hover/active states
+Shape buttons for their purpose - rounded rectangles for general actions, circles for location, triangles for play/pause media
+Give actionable buttons clear descriptive labels
+Use icon buttons sparingly and style them distinctly from weather iconography
+Group related buttons in consistent areas like bottom navbar
+General Principles:
+
+Follow style guide for spacing, sizes, fonts, shadows, etc.
+Use white space and grouping to create visual hierarchy
+Be consistent with borders, backgrounds, and treatments
+Animate interactions for smooth transitions between states
+The goal is to enhance scanability, reinforce information relationships, and guide the user through clear, purposeful visual cues
+
+Project Overview
+
+The WeatherNow app aims to provide users with accurate, reliable, and accessible weather information to help them plan their daily activities.
+
+Goals:
+
+Create an easy-to-use weather app optimized for mobile usage
+Provide current conditions, hourly forecasts, and weather alerts
+Enable location-based weather lookups and saved favorites
+Incorporate weather animations and dynamic visuals
+Follow responsive design best practices
+Objectives:
+
+Integrate a weather API to fetch reliable forecast data
+Build an intuitive mobile interface for checking weather
+Store user preferences and locations for quick access
+Add visual flair with animations and effects reflecting conditions
+Follow accessibility standards for usability
+Target Audience:
+
+General consumers wanting quick access to weather forecasts
+Travelers and commuters planning trips or transportation
+Outdoor enthusiasts for sports, activities, etc.
+Businesses and event planners needing weather insight
+Weather hobbyists interested in detailed forecast data
+The goal is to build a weather app that focuses on convenience, reliability, visual appeal, and ease of use for the target demographics above. Feedback from potential users will help refine the objectives and experience.
+
+Hourly and daily forecasts - Users want granular, frequently updated predictions.
+
+Precipitation tracking - Real-time rain/snow tracking is highly desired.
+
+Weather alerts - Severe weather warnings with custom alert settings.
+
+Offline access - Ability to view basic weather data without internet.
+
+Favorite locations - Quickly save and access frequently checked cities.
+
+Weather maps - Interactive radar and satellite maps are expected.
+
+Air quality info - Growing interest in air quality indices.
+
+Weather widgets - Widgets for easy access from home screen.
+
+Data visualizations - Creative visuals beyond just stats appeal to users.
+
+Sharing - Social media integration and sharing options.
+
+Customizable units - Support for metric, imperial units.
+
+Accessibility - Full support for screen readers and vision needs.
+
+Apple Watch app - Taking advantage of smart watch growth.
+
+Android TV app - Optimized experience for TV usage.
+
+The focus is on real-time accuracy, predictive data, customization, interactive maps, and expanded platforms based on user feedback and the competitive landscape.
+
+Let me know if you need any clarification or have additional features to consider. I'm happy to research further based on any specific user segments as well.
+
+Homepage Wireframe:
+
+Top bar with location text and menu icon
+Current weather conditions and temp
+Today's hourly forecast timeline
+Bottom navbar with icons for map, alerts, and menu
+Forecast Page Wireframe:
+
+Back button and location text
+Tabs to switch between daily and hourly forecast
+Daily forecast shown as stacked cards
+Hourly forecast as scrollable timeline
+Bottom navbar
+Alerts Page Wireframe:
+
+Back button and location text
+List of active weather alerts
+Alert details with main info, description, and map
+Bottom navbar
+The homepage focuses on current conditions and hourly forecast. The forecast page shows daily and hourly data. The alerts page lists active weather warnings. The bottom navbar provides quick access on all screens.
+
+Homepage Wireframe:
+
+Top bar with menu and current location
+Larger current conditions display
+Expanded hourly timeline with more hourly slots
+Forecast summary panel with today's highs/lows and conditions
+Bottom bar with icons for map, alerts, and menu
+Forecast Page Wireframe:
+
+Back button and location in top bar
+Daily and hourly forecast tabs
+Daily forecast as expandable cards with more details
+Hourly forecast timeline spanning page width
+Map view of forecast below timeline
+Bottom bar navigation
+Alerts Page Wireframe:
+
+Top bar with back button and location
+List of weather alerts as expandable cards
+More alert details visible - timing, severity, description
+Map shows alert locations and zones
+Bottom bar navigation
+The desktop views focus on providing more data and details by utilizing the extra screen space. Key data is more prominent while maintaining a familiar layout.
+
+Here is an example of how to integrate the OpenWeatherMap API into a Node.js 
+
+// Require the API client library
+const openweathermap = require('openweathermap-api-node');
+
+// Initialize the client with your API key 
+const apiKey = '9e04f103227aedbab7295408087f118b';
+const owm = new openweathermap({ apiKey });
+
+// Make a test call to the Current Weather endpoint
+owm.currentByCityName('London')
+  .then(data => {
+    // Data contains the weather info for London
+    console.log(data); 
+  })
+  .catch(err => {
+    // Handle any errors
+  });
+
+// Get 5 day / 3 hour forecast
+owm.forecastByCityName('Paris', {units: 'metric'})
+  .then(data => {
+    // Data has forecast info for Paris in metric units
+  })
+  .catch(err => {
+    // Handle errors
+  });
+
+  // Set user's preferred temperature unit
+function setTempUnit(unit) {
+localStorage.setItem('tempUnit', unit);
+}
+
+// Get user's preferred temperature unit
+function getTempUnit() {
+return localStorage.getItem('tempUnit') || 'metric';
+}
+
+// Add a location to favorites list
+function addFavorite(name, lat, lon) {
+const favorites = getFavorites();
+favorites.push({name, lat, lon});
+localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+// Get user's favorite locations
+function getFavorites() {
+return JSON.parse(localStorage.getItem('favorites')) || [];
+}
+
+// Save a weather data object indexed by location key
+function cacheWeather(locationKey, weatherData) {
+let cache = getWeatherCache();
+cache[locationKey] = weatherData;
+localStorage.setItem('weatherCache', JSON.stringify(cache));
+}
+
+// Get cached weather data
+function getWeatherCache() {
+return JSON.parse(localStorage.getItem('weatherCache')) || {};
+}
+
+This allows you to store the user's preferred unit system, their favorite locations list, and a cache of weather data that can be loaded on startup.
+
+// weatherService.js
+
+import { OpenWeatherMapClient } from 'openweathermap-api-node';
+
+export default class WeatherService {
+
+  constructor() {
+    this.client = new OpenWeatherMapClient({apiKey});
+  }
+
+  async getCurrentWeather(location) {
+    return this.client.currentWeather({location}); 
+  }
+
+  async getForecast(location) {
+    return this.client.forecast({location});
+  }
+
+  async searchLocations(query) {
+    return this.client.locations({query});
+  }
+
+}
+
+// Usage
+
+const weatherService = new WeatherService();
+
+const current = await weatherService.getCurrentWeather('London');
+
+const forecast = await weatherService.getForecast({
+  latitude: 51.5085,
+  longitude: -0.1257
+});
+
+
+
+The key responsibilities:
+
+Initializes API client
+Encapsulates API calls behind method interfaces
+Gets current weather by location text/coords
+Gets forecast weather by location
+Search locations via API
+This module could then be imported into other parts of the app to access weather data.
+
+// ui.js
+
+export default class UI {
+
+  constructor() {
+    // Select DOM elements
+  }
+
+  showCurrentWeather(weather) {
+    // Update UI with current weather data
+  }
+
+  showForecast(forecast) {
+    // Display forecast data
+  }
+
+  configureSettings(settings) {
+    // Set up UI for settings
+  }
+
+  handleSearch() {
+    // Get user's search query
+    // Call weather service API
+  }
+
+  handleUnitToggle() {
+    // Toggle temp units
+    // Update UI with new units
+  }
+
+  handleAddFavorite() {
+    // Get user's favorite location
+    // Persist in storage
+    // Update UI favorites list
+  }
+
+}
+
+// Usage
+
+const ui = new UI();
+
+// Show current weather 
+ui.showCurrentWeather(weatherData);
+
+// Handle user interacting 
+ui.handleSearch();
+ui.handleAddFavorite();
+
+
+
+The key responsibilities:
+
+Manage DOM elements
+Display weather data
+Handle user interactions
+Call to business logic services
+Update UI based on data changes
+
+// storage.js
+
+const STORAGE_KEY_TEMP_UNIT = 'tempUnit';
+const STORAGE_KEY_FAVORITES = 'favorites';
+
+export default class Storage {
+  
+  getTempUnit() {
+    return localStorage.getItem(STORAGE_KEY_TEMP_UNIT);
+  }
+
+  setTempUnit(unit) {
+    localStorage.setItem(STORAGE_KEY_TEMP_UNIT, unit);
+  }
+  
+  getFavorites() {
+    const favorites = localStorage.getItem(STORAGE_KEY_FAVORITES);
+    return favorites ? JSON.parse(favorites) : [];
+  }
+
+  addFavorite(favorite) {
+    const favorites = this.getFavorites();
+    favorites.push(favorite);
+    localStorage.setItem(STORAGE_KEY_FAVORITES, JSON.stringify(favorites));
+  }
+
+  removeFavorite(favorite) {
+    // Logic to remove favorite 
+  }
+
+}
+
+// Usage
+
+const storage = new Storage();
+
+storage.getTempUnit();
+storage.setTempUnit('metric');
+
+storage.getFavorites();
+storage.addFavorite({
+  name: 'London',
+  country: 'UK'
+});
+
+
+
+The key responsibilities:
+
+Encapsulate localStorage usage
+Manage keys for data types
+Provide methods to get, set, add, remove data
+This keeps localStorage implementation separated.
+
+// animation.js
+
+export default class Animation {
+
+  constructor() {
+    // Get DOM elements
+  }
+
+  setBackground(weather) {
+    // Set background based on weather:
+    // Sunny, rain, snow, cloudy, etc.
+  }
+
+  animateWeatherIcon(icon) {
+    // Animate weather icon:
+    // Rain drops, snow fall, wind, etc. 
+  }
+
+  changeBackgroundIntensity(intensity) {
+    // Increase/decrease background animation intensity 
+  }
+
+  startRainAnimation() {
+    // Rain particle animation
+  }
+
+  startSnowAnimation() {
+    // Snow particle animation
+  }
+
+  stopPrecipitation() {
+    // Stop rain or snow animation
+  }
+
+}
+
+// Usage
+
+const animation = new Animation();
+
+animation.setBackground('rain');
+animation.animateWeatherIcon('rain');
+animation.startRainAnimation();
+
+// Later when weather changes:
+animation.stopPrecipitation();
+animation.setBackground('sunny');
+
+
+
+This module encapsulates animations and dynamic backgrounds based on current weather data.
