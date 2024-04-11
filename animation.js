@@ -22,6 +22,7 @@ async function run() {
     const weatherData = await fetchWeatherData();
 
     // Set background based on weather
+    const animation = new Animation();
     animation.setBackground(weatherData.condition);
 
     // Animate weather icon

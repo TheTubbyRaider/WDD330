@@ -1,72 +1,70 @@
 /* Variables */
 :root {
-    --color-bg: #1e213a; 
-    --color-primary: #e7e7eb;
-    --color-secondary: #100e1d;
-  
-    --font-body: Arial, Helvetica, sans-serif;
-    --font-heading: "Raleway", sans-serif;
-  }
-  
-  /* Base Styles */
-  body {
-    background: var(--color-bg); 
-    color: var(--color-primary);
-    font-family: var(--font-body);
-  }
-  
-  /* Typography */
-  h1, h2 {
-    font-family: var(--font-heading);
-  }
-  
-  /* Mobile Styles */
-  
-  /* Current Weather */
+  --color-bg: #1e213a;
+  --color-primary: #e7e7eb;
+  --color-secondary: #100e1d;
+
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-heading: "Raleway", sans-serif;
+}
+
+/* Base Styles */
+body {
+  background: var(--color-bg);
+  color: var(--color-primary);
+  font-family: var(--font-body);
+}
+
+/* Typography */
+h1,
+h2 {
+  font-family: var(--font-heading);
+}
+
+/* Mobile Styles */
+
+/* Current Weather */
+.current-weather {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Forecast */
+.forecast-timeline {
+  display: flex;
+  overflow-x: scroll;
+  padding: 0 1rem;
+}
+
+.forecast-day {
+  flex: 0 0 20%;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+/* Alerts */
+.alert-item {
+  padding: 1rem;
+  margin: 1rem;
+  border: 1px solid var(--color-secondary);
+  border-radius: 4px;
+}
+
+/* Desktop Styles */
+@media (min-width: 768px) {
   .current-weather {
-    text-align: center;
-    padding: 1rem;
+    text-align: left;
   }
-  
-  /* Forecast */
+
   .forecast-timeline {
-    display: flex;
-    overflow-x: scroll;
-    padding: 0 1rem;
+    flex-wrap: wrap;
   }
-  
+
   .forecast-day {
-    flex: 0 0 20%;
-    padding: .5rem;
-    text-align: center;
+    flex-basis: calc(100% / 3);
   }
-  
-  /* Alerts */
+
   .alert-item {
-    padding: 1rem;
-    margin: 1rem;
-    border: 1px solid var(--color-secondary);
-    border-radius: 4px;
+    display: flex;
   }
-  
-  /* Desktop Styles */
-  @media (min-width: 768px) {
-  
-    .current-weather {
-      text-align: left;
-    }
-  
-    .forecast-timeline {
-      flex-wrap: wrap;
-    }
-  
-    .forecast-day {
-      flex-basis: calc(100% / 3);
-    }
-  
-    .alert-item {
-      display: flex;
-    }
-  
-  }
-  
+}

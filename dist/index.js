@@ -1,7 +1,4 @@
-// Import styles.css so it is bundled
-import "styles.css";
 
-// For example:
 
 // Select DOM elements
 const btn = document.querySelector("#btn");
