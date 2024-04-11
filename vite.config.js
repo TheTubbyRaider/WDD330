@@ -1,6 +1,6 @@
 export default {
-    build: {
-      outDir: 'finalproject/dist'
-    }
-  }  
-  
+  base: "/",
+  build: {
+    outDir: "dist",
+  },
+};
