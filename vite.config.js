@@ -1,6 +1,11 @@
 export default {
-  base: "/",
+  base: "/dist/",
   build: {
     outDir: "dist",
+  },
+  server: {
+    fs: {
+      strict: false,
+    },
   },
 };
