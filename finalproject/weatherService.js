@@ -1,73 +1,16 @@
 // Require API client
-const openweathermap = require("openweathermap-api-node");
+import { OpenWeatherMap } from "openweathermap";
 
-// API key
 const apiKey = "9e04f103227aedbab7295408087f118b";
+const owm = new OpenWeatherMap({ apiKey });
 
-// Initialize client
-const owm = new openweathermap({ apiKey });
-
-export default class WeatherService {
-  async getCurrentWeather(location) {
-    try {
-      // Show loading indicator
-      showLoading();
-
-      const weather = await owm.currentWeather({ location });
-
-      // Hide loading indicator
-      hideLoading();
-
-      return weather;
-    } catch (error) {
-      // Hide loading indicator
-      hideLoading();
-
-      // Handle error
-      handleError(error);
-    }
-  }
-
-  async getForecast(location) {
-    // Same error handling
-    try {
-      // Show loading indicator
-      showLoading();
-
-      const forecast = await owm.forecast({ location });
-
-      // Hide loading indicator
-      hideLoading();
-
-      return forecast;
-    } catch (error) {
-      // Hide loading indicator
-      hideLoading();
-
-      // Handle error
-      handleError(error);
-    }
-  }
-
-  async searchLocations(query) {
-    // Same error handling
-    try {
-      // Show loading indicator
-      showLoading();
-
-      const locations = await owm.locations({ query });
-
-      // Hide loading indicator
-      hideLoading();
-
-      return locations;
-    } catch (error) {
-      // Hide loading indicator
-      hideLoading();
-
-      // Handle error
-      handleError(error);
-    }
+export async function getWeatherData(city) {
+  try {
+    const data = await owm.getCurrentWeather(city);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
   }
 }
 

@@ -67,3 +67,13 @@ function checkContrast(el) {
     el.style.color = "black"; // increase contrast
   }
 }
+
+export class Storage {
+  static addFavorite(city) {
+    let favorites = this.getFavorites();
+    favorites.push(city);
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+
+  // other methods for getting/removing favorites
+}

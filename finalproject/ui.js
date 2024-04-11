@@ -1,60 +1,67 @@
 // ui.js
 
 export default class UI {
+  constructor() {
+    this.loadingEl = document.getElementById("loading");
+  }
 
-    constructor() {
-      this.loadingEl = document.getElementById('loading');
-    }
-  
-    showLoading() {
-      this.loadingEl.style.visibility = 'visible';
-    }
-  
-    hideLoading() {
-      this.loadingEl.style.visibility = 'hidden'; 
-    }
-  
-    showCurrentWeather(weather) {
-      // Display weather data  
-    }
-  
-    showMap(weather) {
-      // Show weather data on map
-    }
-  
-    share() {
-      if (navigator.share) {
-        navigator.share(weatherData) 
-          .then(() => console.log('Shared!'))
-          .catch(err => console.error(err))
-      } else {
-        // fallback sharing
-      }
-    }
-  
+  showLoading() {
+    this.loadingEl.style.visibility = "visible";
   }
-  
-  // Map module
-  
-  function initMap() {
-    // init map 
+
+  hideLoading() {
+    this.loadingEl.style.visibility = "hidden";
   }
-  
-  function addMarker(location) {
-    // add marker
+
+  showCurrentWeather(weather) {
+    // Display weather data
   }
-  
-  // Accessibility
-  
+
+  showMap(weather) {
+    // Show weather data on map
+  }
+
+  share() {
+    if (navigator.share) {
+      navigator
+        .share(weatherData)
+        .then(() => console.log("Shared!"))
+        .catch((err) => console.error(err));
+    } else {
+      // fallback sharing
+    }
+  }
+}
+
+// Map module
+
+function initMap() {
+  // init map
+}
+
+function addMarker(location) {
+  // add marker
+}
+
+// Accessibility
+
 <div>
+  <img src="..." alt="Weather icon" />
 
-<img src="..." alt="Weather icon" />
+  <button aria-label="Close modal">
+    <span class="close-icon">X</span>
+  </button>
+</div>;
 
-<button aria-label="Close modal">
-  <span class="close-icon">X</span>  
-</button> 
+// Ensure sufficient color contrast
+export function showLoading() {
+  // update DOM to display loading indicator
+}
 
-</div>
-  
-  // Ensure sufficient color contrast
-  
+export function showWeather(weatherData) {
+  // update DOM to display weather data
+}
+
+export function showError(error) {
+  // update DOM to display error message
+}
