@@ -126,3 +126,13 @@ function makeFocusVisible(element) {
     event.target.classList.add("focused");
   });
 }
+
+async function getWeather(location) {
+  const resp = await fetch(
+    `/.netlify/functions/weather-api?location=${location}`
+  );
+
+  const data = await resp.json();
+
+  // process weather data...
+}
