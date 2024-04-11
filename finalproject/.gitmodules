@@ -1,0 +1,14 @@
+# Create .gitmodules file
+touch .gitmodules
+
+# Add submodule config  
+echo '[submodule "WDD-330"]' >> .gitmodules
+echo '  path = WDD-330' >> .gitmodules 
+echo '  url = https://github.com/user/WDD-330.git' >> .gitmodules
+
+# Commit .gitmodules file
+git add .gitmodules
+git commit -m "Add .gitmodules file"
+
+# Push to GitHub
+git push origin main
