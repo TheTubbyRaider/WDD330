@@ -1,29 +1,19 @@
-import WeatherService from "./services/WeatherService.js";
-import UI from "./ui/UI.js";
+import WeatherService from './weatherService.js';
+import UI from './ui.js';
 
-// Select elements
-const locationEl = document.getElementById("location");
-const iconEl = document.getElementById("icon");
-const tempEl = document.getElementById("temperature");
+const apiKey = 'ea748f02ae7e855c5c933625fb1aa856'; 
+const weatherService = new WeatherService(apiKey);
+const ui = new UI();
 
-// Show weather data
-function showWeather(weather) {
-  locationEl.textContent = weather.name;
-  iconEl.setAttribute("src", weather.iconUrl);
-  tempEl.textContent = weather.temperature;
+// Fetch current weather data and display it on UI
+async function displayWeather(location) {
+  try {
+    const weather = await weatherService.getCurrentWeather(location);
+    ui.showCurrentWeather(weather);
+  } catch (error) {
+    console.error('Error fetching weather:', error);
+  }
 }
 
-// Initialize
-async function init() {
-  // Get weather
-  const weather = await WeatherService.getCurrentWeather("London");
-
-  // Show weather
-  showWeather(weather);
-
-  // Rest of init
-  UI.showLoadingSpinner();
-  UI.hideLoadingSpinner();
-}
-
-init();
+// Call displayWeather function with user's current location
+displayWeather('London'); // You can change the location here

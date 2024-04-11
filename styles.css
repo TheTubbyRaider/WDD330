@@ -1,5 +1,4 @@
 /* Layout */
-
 body {
   background: #f7f7f7;
   color: #202020;
@@ -11,7 +10,6 @@ body {
 }
 
 /* Header */
-
 header {
   background: #3f51b5;
   color: #fff;
@@ -24,7 +22,6 @@ header {
 }
 
 /* Current Weather */
-
 #current {
   text-align: center;
   background: #fff;
@@ -44,18 +41,9 @@ header {
 }
 
 /* Forecast */
-
 #forecast {
   background: #fff;
   padding: 20px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
-}
-
-/* More styles */
-
-@media (max-width: 768px) {
-
-  /* Mobile styles */
-
 }
