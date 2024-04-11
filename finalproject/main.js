@@ -16,4 +16,4 @@ btn.addEventListener('click', () => {
 // Export functions to be used elsewhere
 export function myFunction() {
   // ...
-}
+} 
