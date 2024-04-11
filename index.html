@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Weather App</title>
-    <link rel="stylesheet" href="/dist/styles.css" />
-  </head>
 
-  <body>
-    <div id="app">
-      <!-- SearchBar component rendered here -->
-      <div id="search-bar"></div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-      <!-- WeatherDisplay component rendered here -->
-      <div id="weather-display"></div>
+<body>
 
-      <!-- Other components rendered here -->
+  <div id="app">
+
+    <div id="search-bar">
+      <input type="text" id="city-input" placeholder="Enter city name"/>
+      <button id="search-button">Search</button> 
     </div>
 
-    <script type="module" src="/dist/index.js"></script>
-  </body>
+    <div id="current-weather">
+      <h1 id="city-name"></h1>
+      <p id="weather-description"></p>
+      <img id="weather-icon">
+      <p id="temperature"></p>
+    </div>
+
+    <div id="forecast">
+      <h2>5-Day Forecast</h2>
+      <div id="forecast-cards"></div>
+    </div>
+
+  </div>
+
+  <script type="module" src="index.js"></script>
+
+</body>
+
 </html>

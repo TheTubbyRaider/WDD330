@@ -1,24 +1,25 @@
 export default class Animation {
   setBackground(weather) {
     if (weather === "rain") {
-      // Set rainy background
+      // Set rainy background from wireframe
     } else if (weather === "sunny") {
-      // Set sunny background
+      // Set sunny background from wireframe
     }
   }
 
   animateIcon(icon) {
     if (icon === "rain") {
-      // Rain drop animation
+      // Rain drop animation from wireframe
     } else if (icon === "sunny") {
-      // Sunny icon animation
+      // Sunny icon animation from wireframe
     }
   }
 }
 
 async function run() {
   try {
-    // Add loading indicator
+    // Add loading indicator from wireframe
+
     const weatherData = await fetchWeatherData();
 
     // Set background based on weather

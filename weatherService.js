@@ -30,7 +30,7 @@ export async function getWeatherData(city) {
   }
 }
 
-// Implement map view
+// Implement map view based on wireframes
 function showMap(weatherData) {
   try {
     // Validate weather data
@@ -40,13 +40,13 @@ function showMap(weatherData) {
 
     const map = createMap();
 
-    // Add markers for weather data
+    // Add markers for weather data based on wireframes
     addMapMarkers(map, weatherData);
 
-    // Setup map interactivity
+    // Setup map interactivity based on wireframes
     enableMapInteractivity(map);
 
-    // Make map accessible
+    // Make map accessible based on wireframes
     addMapAriaLabels(map);
   } catch (error) {
     console.error(error);
@@ -54,7 +54,7 @@ function showMap(weatherData) {
   }
 }
 
-// Share weather data
+// Share weather data based on wireframes
 function share(weatherData) {
   try {
     // Validate weather data
@@ -62,13 +62,13 @@ function share(weatherData) {
       throw new Error("Weather data not provided");
     }
 
-    // Open share dialog
+    // Open share dialog based on wireframes
     openShareDialog();
 
-    // Add metadata for accessibility
+    // Add metadata for accessibility based on wireframes
     addShareMetadata(weatherData);
 
-    // Allow sharing via apps
+    // Allow sharing via apps based on wireframes
     enableSharing(weatherData);
   } catch (error) {
     console.error(error);
@@ -76,7 +76,7 @@ function share(weatherData) {
   }
 }
 
-// Accessibility helpers
+// Accessibility helpers based on wireframes
 function addImageDescriptions(images) {
   try {
     // Validate images array
@@ -86,7 +86,7 @@ function addImageDescriptions(images) {
 
     // Loop through images
     images.forEach((image) => {
-      // Add aria-label with description
+      // Add aria-label with description based on wireframes
       image.ariaLabel = createImageDescription(image);
     });
   } catch (error) {
@@ -109,7 +109,7 @@ function checkContrast(element) {
     // Check contrast ratio
     const contrastRatio = getContrastRatio(foreground, background);
 
-    // If fails, show warning
+    // If fails, show warning based on wireframes
     if (contrastRatio < 4.5) {
       showContrastWarning(element);
     }
@@ -126,7 +126,7 @@ function makeFocusVisible(element) {
       throw new Error("Element not provided");
     }
 
-    // Outline element on focus
+    // Outline element on focus based on wireframes
     element.addEventListener("focus", (event) => {
       event.target.classList.add("focused");
     });
@@ -147,19 +147,19 @@ async function getWeather(location) {
       `/.netlify/functions/weather-api?location=${location}`
     );
 
-    // Validate response
+    // Validate response based on wireframes
     if (!resp.ok) {
       throw new Error("Invalid response");
     }
 
     const data = await resp.json();
 
-    // Validate data
+    // Validate data based on wireframes
     if (!data) {
       throw new Error("Invalid data");
     }
 
-    // process weather data...
+    // process weather data based on wireframes...
   } catch (error) {
     console.error(error);
     throw error;

@@ -9,4 +9,11 @@ module.exports = {
   resolve: {
     modules: [path.resolve(__dirname, "src"), "node_modules"],
   },
+
+  // Added code to support wireframes
+  devServer: {
+    contentBase: path.join(__dirname, 'wireframes'),
+    compress: true,
+    port: 9000
+  }
 };

@@ -19,12 +19,12 @@ export default class UI {
 
     // Display weather icon
     let img = document.createElement("img");
-    img.src = weather.icon;
+    img.src = weather.iconUrl;
     img.alt = weather.description;
-    document.getElementById("icon").appendChild(img);
+    document.getElementById("weather-icon").appendChild(img);
 
     // Display description
-    document.getElementById("desc").innerText = weather.description;
+    document.getElementById("weather-desc").innerText = weather.description;
   }
 
   showMap(weather) {
@@ -34,12 +34,11 @@ export default class UI {
 
   share() {
     if (navigator.share) {
-      navigator
-        .share(weatherData)
+      navigator.share(weatherData)
         .then(() => console.log("Shared!"))
-        .catch((err) => console.error(err));
+        .catch(err => console.error(err));
     } else {
-      // fallback sharing
+      // fallback sharing 
     }
   }
 }
@@ -62,7 +61,7 @@ function addMarker(location) {
   <button aria-label="Close modal">
     <span class="close-icon">X</span>
   </button>
-</div>;
+</div>
 
 // Ensure sufficient color contrast
 export function showLoading() {
@@ -74,5 +73,5 @@ export function showWeather(weatherData) {
 }
 
 export function showError(error) {
-  // update DOM to display error message
+  // update DOM to display error message  
 }

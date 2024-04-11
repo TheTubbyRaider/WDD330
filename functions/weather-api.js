@@ -11,9 +11,15 @@ exports.handler = async function (event) {
   try {
     const apiResponse = await fetch(apiUrl);
     const json = await apiResponse.json();
+
+    // Return data formatted for wireframes
     return {
       statusCode: 200,
-      body: JSON.stringify(json),
+      body: JSON.stringify({
+        location: json.name,
+        temp: json.main.temp,
+        desc: json.weather[0].description
+      })
     };
   } catch (error) {
     return { statusCode: 500, body: error.toString() };

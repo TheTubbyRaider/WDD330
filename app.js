@@ -7,12 +7,12 @@ async function main() {
 
   try {
     const weatherData = await weatherService.getWeatherData("London");
-    ui.showWeather(weatherData);
+    ui.showWeatherOnWireframes(weatherData);
   } catch (error) {
-    ui.showError(error);
+    ui.showErrorOnWireframes(error);
   }
 
-  Storage.addFavorite("London");
+  Storage.addFavoriteOnWireframes("London");
 }
 
 main();
