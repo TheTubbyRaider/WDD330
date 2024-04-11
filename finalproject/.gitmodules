@@ -1,14 +1,10 @@
-# Create .gitmodules file
-touch .gitmodules
+# Remove invalid submodule config
+git submodule deinit WDD-330   
 
-# Add submodule config  
-echo '[submodule "WDD-330"]' >> .gitmodules
-echo '  path = WDD-330' >> .gitmodules 
-echo '  url = https://github.com/user/WDD-330.git' >> .gitmodules
+# Add submodule config back   
+git submodule add https://github.com/user/WDD-330.git WDD-330  
 
-# Commit .gitmodules file
-git add .gitmodules
-git commit -m "Add .gitmodules file"
-
-# Push to GitHub
-git push origin main
+# Commit and push changes
+git add .gitmodules WDD-330
+git commit -m "Reconfigure submodule"
+git push
