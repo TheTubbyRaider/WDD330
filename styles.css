@@ -1,70 +1,61 @@
-/* Variables */
-:root {
-  --color-bg: #1e213a;
-  --color-primary: #e7e7eb;
-  --color-secondary: #100e1d;
+/* Layout */
 
-  --font-body: Arial, Helvetica, sans-serif;
-  --font-heading: "Raleway", sans-serif;
-}
-
-/* Base Styles */
 body {
-  background: var(--color-bg);
-  color: var(--color-primary);
-  font-family: var(--font-body);
+  background: #f7f7f7;
+  color: #202020;
 }
 
-/* Typography */
-h1,
-h2 {
-  font-family: var(--font-heading);
+.container {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-/* Mobile Styles */
+/* Header */
+
+header {
+  background: #3f51b5;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.title {
+  font-size: 28px;
+  text-align: center;  
+}
 
 /* Current Weather */
-.current-weather {
+
+#current {
   text-align: center;
-  padding: 1rem;
+  background: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#temperature {
+  font-size: 72px;
+  font-weight: bold;  
+}
+
+#icon {
+  width: 128px;
+  height: 128px;
 }
 
 /* Forecast */
-.forecast-timeline {
-  display: flex;
-  overflow-x: scroll;
-  padding: 0 1rem;
-}
 
-.forecast-day {
-  flex: 0 0 20%;
-  padding: 0.5rem;
-  text-align: center;
-}
-
-/* Alerts */
-.alert-item {
-  padding: 1rem;
-  margin: 1rem;
-  border: 1px solid var(--color-secondary);
+#forecast {
+  background: #fff;
+  padding: 20px;
   border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
 }
 
-/* Desktop Styles */
-@media (min-width: 768px) {
-  .current-weather {
-    text-align: left;
-  }
+/* More styles */
 
-  .forecast-timeline {
-    flex-wrap: wrap;
-  }
+@media (max-width: 768px) {
 
-  .forecast-day {
-    flex-basis: calc(100% / 3);
-  }
+  /* Mobile styles */
 
-  .alert-item {
-    display: flex;
-  }
 }

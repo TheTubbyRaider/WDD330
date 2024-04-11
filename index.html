@@ -1,38 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Weather App</title>
-  <link rel="stylesheet" href="styles.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 <body>
 
-  <div id="app">
+  <header class="container">
+    <h1 class="title">WeatherNow</h1>
+  </header>
 
-    <div id="search-bar">
-      <input type="text" id="city-input" placeholder="Enter city name"/>
-      <button id="search-button">Search</button> 
+  <main class="container">
+
+    <div class="row">
+      <div id="current" class="six columns">
+        <div id="location"></div>
+        <img id="icon"/>
+        <div id="temperature"></div>
+        <div id="description"></div>
+      </div>
+
+      <div id="forecast" class="six columns"></div>
     </div>
 
-    <div id="current-weather">
-      <h1 id="city-name"></h1>
-      <p id="weather-description"></p>
-      <img id="weather-icon">
-      <p id="temperature"></p>
-    </div>
-
-    <div id="forecast">
-      <h2>5-Day Forecast</h2>
-      <div id="forecast-cards"></div>
-    </div>
-
-  </div>
+  </main>
 
   <script type="module" src="index.js"></script>
 
 </body>
-
 </html>

@@ -1,24 +1,29 @@
-// Get API key
-const API_KEY = "YOUR_API_KEY"; 
+import WeatherService from "./services/WeatherService.js";
+import UI from "./ui/UI.js";
 
-// Attach event listener on page load
-document.addEventListener('DOMContentLoaded', () => {
+// Select elements
+const locationEl = document.getElementById("location");
+const iconEl = document.getElementById("icon");
+const tempEl = document.getElementById("temperature");
 
-  document.getElementById('search-button').addEventListener('click', () => {
+// Show weather data
+function showWeather(weather) {
+  locationEl.textContent = weather.name;
+  iconEl.setAttribute("src", weather.iconUrl);
+  tempEl.textContent = weather.temperature;
+}
 
-    const city = document.getElementById('city-input').value;
+// Initialize
+async function init() {
+  // Get weather
+  const weather = await WeatherService.getCurrentWeather("London");
 
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`)
-      .then(response => response.json())
-      .then(data => {
+  // Show weather
+  showWeather(weather);
 
-        document.getElementById('city-name').textContent = data.name;
-        document.getElementById('weather-description').textContent = data.weather[0].description;
-        document.getElementById('weather-icon').src = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
-        document.getElementById('temperature').textContent = `${Math.round(data.main.temp)}°F`;
+  // Rest of init
+  UI.showLoadingSpinner();
+  UI.hideLoadingSpinner();
+}
 
-      });
-
-  });
-
-});
+init();
