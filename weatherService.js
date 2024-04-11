@@ -6,10 +6,26 @@ const owm = new OpenWeatherMap({ apiKey });
 
 export async function getWeatherData(city) {
   try {
-    const data = await owm.getCurrentWeather(city);
-    return data;
+    // Log request URL
+    console.log(
+      `Request URL: https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+    );
+
+    // Make API request
+    const response = await owm.getCurrentWeather(city);
+
+    // Log raw response
+    console.log("API Response:", response);
+
+    // Validate response data
+    if (!response || !response.main) {
+      throw new Error("Invalid response data");
+    }
+
+    // Return data
+    return response;
   } catch (error) {
-    console.error(error);
+    console.error("API Error:", error);
     throw error;
   }
 }
@@ -17,6 +33,11 @@ export async function getWeatherData(city) {
 // Implement map view
 function showMap(weatherData) {
   try {
+    // Validate weather data
+    if (!weatherData) {
+      throw new Error("Weather data not provided");
+    }
+
     const map = createMap();
 
     // Add markers for weather data
@@ -36,6 +57,11 @@ function showMap(weatherData) {
 // Share weather data
 function share(weatherData) {
   try {
+    // Validate weather data
+    if (!weatherData) {
+      throw new Error("Weather data not provided");
+    }
+
     // Open share dialog
     openShareDialog();
 
@@ -53,6 +79,11 @@ function share(weatherData) {
 // Accessibility helpers
 function addImageDescriptions(images) {
   try {
+    // Validate images array
+    if (!images || !Array.isArray(images)) {
+      throw new Error("Invalid images array");
+    }
+
     // Loop through images
     images.forEach((image) => {
       // Add aria-label with description
@@ -66,6 +97,11 @@ function addImageDescriptions(images) {
 
 function checkContrast(element) {
   try {
+    // Validate element
+    if (!element) {
+      throw new Error("Element not provided");
+    }
+
     // Get foreground and background colors
     const foreground = getForegroundColor(element);
     const background = getBackgroundColor(element);
@@ -85,6 +121,11 @@ function checkContrast(element) {
 
 function makeFocusVisible(element) {
   try {
+    // Validate element
+    if (!element) {
+      throw new Error("Element not provided");
+    }
+
     // Outline element on focus
     element.addEventListener("focus", (event) => {
       event.target.classList.add("focused");
@@ -97,11 +138,26 @@ function makeFocusVisible(element) {
 
 async function getWeather(location) {
   try {
+    // Validate location
+    if (!location) {
+      throw new Error("Location not provided");
+    }
+
     const resp = await fetch(
       `/.netlify/functions/weather-api?location=${location}`
     );
 
+    // Validate response
+    if (!resp.ok) {
+      throw new Error("Invalid response");
+    }
+
     const data = await resp.json();
+
+    // Validate data
+    if (!data) {
+      throw new Error("Invalid data");
+    }
 
     // process weather data...
   } catch (error) {
