@@ -1,5 +1,9 @@
 {
-    "dependencies": {
-      "openweathermap": "^1.0.2" 
-    }
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "Simple weather app",
+  "main": "index.js",
+  "dependencies": {
+    "openweathermap": "^1.0.2"
   }
+}

@@ -17,62 +17,15 @@ export default class Storage {
   }
 }
 
-try {
-  // Add loading indicator
-  document.getElementById("loading").style.display = "block";
-
-  // Fetch API data
-  const response = await fetch("/api/data");
-
-  // Handle errors
-  if (!response.ok) {
-    throw new Error("Error fetching data");
-  }
-
-  // Hide loading indicator
-  document.getElementById("loading").style.display = "none";
-
-  // Process data
-  const data = await response.json();
-  // ...
-} catch (error) {
-  console.error(error);
-  alert("Error fetching data. Please try again later.");
-}
-
-// Map view
-const map = new Map();
-
-// Data sharing
-function share() {
-  if (navigator.share) {
-    navigator.share({
-      title: "Title",
-      text: "Text",
-      url: "URL",
-    });
-  } else {
-    // fallback
-  }
-}
-
-// Accessibility
-function addAltText(img) {
-  img.alt = "Description of image";
-}
-
-function checkContrast(el) {
-  const contrast = getContrast(el.style.color, el.style.backgroundColor);
-  if (contrast < 4.5) {
-    el.style.color = "black"; // increase contrast
-  }
-}
-
 export class Storage {
   static addFavorite(city) {
     let favorites = this.getFavorites();
     favorites.push(city);
     localStorage.setItem("favorites", JSON.stringify(favorites));
+  }
+
+  static getFavorites() {
+    return JSON.parse(localStorage.getItem("favorites")) || [];
   }
 
   // other methods for getting/removing favorites

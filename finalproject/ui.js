@@ -14,11 +14,22 @@ export default class UI {
   }
 
   showCurrentWeather(weather) {
-    // Display weather data
+    // Display temperature
+    document.getElementById("temp").innerText = weather.temp;
+
+    // Display weather icon
+    let img = document.createElement("img");
+    img.src = weather.icon;
+    img.alt = weather.description;
+    document.getElementById("icon").appendChild(img);
+
+    // Display description
+    document.getElementById("desc").innerText = weather.description;
   }
 
   showMap(weather) {
     // Show weather data on map
+    addMarker(weather.location);
   }
 
   share() {
