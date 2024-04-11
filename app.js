@@ -1,6 +1,6 @@
-import weatherService from "./weatherService.js";
-import ui from "./ui.js";
-import { Storage } from "./storage.js";
+import weatherService from "./finalproject/weatherService.js";
+import ui from "./finalproject/ui.js";
+import { Storage } from "./finalproject/storage.js";
 
 async function main() {
   ui.showLoading();
