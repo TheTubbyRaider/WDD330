@@ -1,7 +1,7 @@
 // Require API client
 import { OpenWeatherMap } from "openweathermap";
 
-const apiKey = "9e04f103227aedbab7295408087f118b";
+const apiKey = "9b8e8824203134875cd82225113718f2";
 const owm = new OpenWeatherMap({ apiKey });
 
 export async function getWeatherData(city) {
