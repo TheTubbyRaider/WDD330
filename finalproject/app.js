@@ -1,15 +1,15 @@
-import { getWeatherData } from "./weatherService.js";
-import { showLoading, showWeather, showError } from "./ui.js";
+import weatherService from "./weatherService.js";
+import ui from "./ui.js";
 import { Storage } from "./storage.js";
 
 async function main() {
-  showLoading();
+  ui.showLoading();
 
   try {
-    const weatherData = await getWeatherData("London");
-    showWeather(weatherData);
+    const weatherData = await weatherService.getWeatherData("London");
+    ui.showWeather(weatherData);
   } catch (error) {
-    showError(error);
+    ui.showError(error);
   }
 
   Storage.addFavorite("London");
