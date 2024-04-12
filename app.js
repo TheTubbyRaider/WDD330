@@ -71,7 +71,7 @@ class Animation {
 }
 
 // Initialize WeatherService, UI, Storage, and Animation modules
-const apiKey = 'ea748f02ae7e855c5c933625fb1aa856';
+const apiKey = '89b42f547be04bc0cafbb7a8806f073d';
 const weatherService = new WeatherService(apiKey);
 const ui = new UI();
 const storage = new Storage();
