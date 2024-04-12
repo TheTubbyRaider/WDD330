@@ -6,6 +6,14 @@ export default class WeatherService {
   }
 
   async getCurrentWeather(location) {
-    return this.client.currentByCityName(location); 
+    return this.client.currentWeather({ location });
+  }
+
+  async getForecast(location) {
+    return this.client.forecast({ location });
+  }
+
+  async searchLocations(query) {
+    return this.client.locations({ query });
   }
 }
